@@ -10,6 +10,21 @@ package com.ilyagubarev.codetasks.strings;
 public final class StringHelper {
 
     /**
+     * Checks if two strings are rotated versions of each other.
+     *
+     * @param string1 one string.
+     * @param string2 another string.
+     * @return true if strings are rotated versions of each other.
+     */
+    public static boolean checkIfRotated(String string1, String string2) {
+        if (string1.length() != string2.length()) {
+            return false;
+        }
+        String string = string2 + string2;
+        return string.contains(string1);
+    }
+
+    /**
      * Checks if specified ANSI strings are permutations of each other.
      *
      * @param string1 one string.
