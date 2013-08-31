@@ -27,9 +27,9 @@ public final class StringHelper {
     }
 
     /**
-     * Checks if there are duplicated symbols in specified ANSI string.
+     * Checks if there are duplicated symbols in specified string.
      *
-     * @param string an ANSI string.
+     * @param string a string.
      */
     public static boolean containsDupsNoRegister(String string) {
         for (int front = 1; front < string.length(); ++front) {
@@ -41,6 +41,25 @@ public final class StringHelper {
             }
         }
         return false;
+    }
+
+    /**
+     * Reverses specified string in place.
+     *
+     * @param string a null-terminated string as an array of characters.
+     */
+    public static void reverseInPlace(char[] string) {
+        int tail = 0;
+        while (string[tail] != 0) {
+            ++tail;
+        }
+        --tail;
+        int head = 0;
+        while (head < tail) {
+            char buffer = string[head];
+            string[head++] = string[tail];
+            string[tail--] = buffer;
+        }
     }
 
     private StringHelper() {
