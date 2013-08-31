@@ -10,11 +10,40 @@ package com.ilyagubarev.codetasks.strings;
 public final class StringHelper {
 
     /**
+     * Checks if specified ANSI strings are permutations of each other.
+     *
+     * @param string1 one string.
+     * @param string2 another string.
+     * @return true if the strings are permutations of each other.
+     */
+    public static boolean checkIfPermutations(String string1, String string2) {
+        if (string1.length() != string2.length()) {
+            return false;
+        }
+        int[] register = new int[255];
+        for (int i = 0; i < string1.length(); ++i) {
+            ++register[string1.charAt(i)];
+        }
+        for (int i = 0; i < string2.length(); ++i) {
+            char c = string2.charAt(i);
+            if (register[c] == 0) {
+                return false;
+            }
+            --register[c];
+        }
+        return true;
+    }
+
+    /**
      * Checks if there are duplicated symbols in specified ANSI string.
      *
      * @param string an ANSI string.
+     * @return true if contains duplicated characters.
      */
     public static boolean containsDups(String string) {
+        if (string.length() < 2) {
+            return false;
+        }
         boolean[] register = new boolean[255];
         for (int i = 0; i < string.length(); ++i) {
             char c = string.charAt(i);
@@ -30,8 +59,12 @@ public final class StringHelper {
      * Checks if there are duplicated symbols in specified string.
      *
      * @param string a string.
+     * @return true if contains duplicated characters.
      */
     public static boolean containsDupsNoRegister(String string) {
+        if (string.length() < 2) {
+            return false;
+        }
         for (int front = 1; front < string.length(); ++front) {
             char c = string.charAt(front);
             for (int back = 0; back < front; ++back) {
