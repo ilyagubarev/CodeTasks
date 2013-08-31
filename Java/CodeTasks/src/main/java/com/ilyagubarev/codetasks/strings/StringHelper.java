@@ -26,6 +26,23 @@ public final class StringHelper {
         return false;
     }
 
+    /**
+     * Checks if there are duplicated symbols in specified ANSI string.
+     *
+     * @param string an ANSI string.
+     */
+    public static boolean containsDupsNoRegister(String string) {
+        for (int front = 1; front < string.length(); ++front) {
+            char c = string.charAt(front);
+            for (int back = 0; back < front; ++back) {
+                if (string.charAt(back) == c) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     private StringHelper() {
 
     }
