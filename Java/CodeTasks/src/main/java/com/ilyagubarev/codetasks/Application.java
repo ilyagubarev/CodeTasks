@@ -1,5 +1,7 @@
 package com.ilyagubarev.codetasks;
 
+import com.ilyagubarev.codetasks.arrays.MatrixHelper;
+
 /**
  * Application main class
  *
@@ -16,6 +18,27 @@ public final class Application {
      */
     public static void main(String ... args) {
 
+    }
+    
+    private static void testMatrix() {
+        int[][] matrix = new int[][] { new int[] {1, 1, 1, 1, 1}, new int[] {2, 2, 2, 2, 2}, new int[] {3, 3, 3, 3, 3}, new int[] {4, 4, 4, 4, 4}, new int[] {5, 5, 5, 5, 5}};
+        for (int row = 0; row < matrix.length; ++row) {
+            for (int column = 0; column < matrix.length; ++column) {
+                System.out.print(matrix[row][column]);
+                System.out.print(" ");
+            }
+            System.out.println();            
+        }
+        System.out.println();            
+        System.out.println();            
+        MatrixHelper.rotate(matrix);
+        for (int row = 0; row < matrix.length; ++row) {
+            for (int column = 0; column < matrix.length; ++column) {
+                System.out.print(matrix[row][column]);
+                System.out.print(" ");
+            }
+            System.out.println();            
+        }        
     }
 
     private Application() {

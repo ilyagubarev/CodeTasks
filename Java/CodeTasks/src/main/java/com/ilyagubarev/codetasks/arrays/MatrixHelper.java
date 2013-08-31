@@ -8,7 +8,14 @@ package com.ilyagubarev.codetasks.arrays;
  * @author Ilya Gubarev
  */public final class MatrixHelper {
 
-    
+     /**
+      * Rotates specified square matrix by 90 degrees clockwise.
+      *
+      * @param matrix a square matrix.
+      */
+    public static void rotate(int[][] matrix) {
+
+    }
 
     private MatrixHelper() {
 
